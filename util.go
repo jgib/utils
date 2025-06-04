@@ -35,3 +35,13 @@ func Debug(text string, verbose ...bool) {
 		fmt.Fprintf(os.Stderr, "%s | %v | %s:%d | Debug: %s\n", currTime.Format("2006/01/02 15:04:05"), runtime.FuncForPC(pc).Name(), path.Base(file), line, text)
 	}
 }
+
+func GetArgs(n ...int) ([]string, error) {
+	args := os.Args[1:]
+
+	if len(n) != 0 && n[0] != 0 && len(args) < n[0] {
+		return nil, fmt.Errorf("incorrect arguments given, expecting %d and received %d", n[0], len(args))
+	}
+
+	return args, nil
+}
