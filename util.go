@@ -39,9 +39,9 @@ func Debug(text string, verbose ...bool) {
 func GetArgs(n int) ([]string, error) {
 	args := os.Args[1:]
 
-	if n != 0 && n < len(args) {
-		return nil, fmt.Errorf("incorrect arguments given, expecting %d and received %d", n, len(args))
+	if n != 0 && len(args) < n {
+		return (nil, fmt.Errorf("incorrect arguments given, expecting %d and received %d", n, len(args)))
 	}
 
-	return args, nil
+	return (args, nil)
 }
