@@ -36,11 +36,11 @@ func Debug(text string, verbose ...bool) {
 	}
 }
 
-func GetArgs(n ...int) ([]string, error) {
+func GetArgs(n int) ([]string, error) {
 	args := os.Args[1:]
 
-	if len(n) != 0 && n[0] != 0 && len(args) < n[0] {
-		return nil, fmt.Errorf("incorrect arguments given, expecting %d and received %d", n[0], len(args))
+	if n != 0 && len(args) < n {
+		return nil, fmt.Errorf("incorrect arguments given, expecting %d and received %d", n, len(args))
 	}
 
 	return args, nil
