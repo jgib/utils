@@ -45,3 +45,26 @@ func GetArgs(n int) ([]string, error) {
 
 	return args, nil
 }
+
+func WalkByteSlice(input []byte) string {
+	var output string
+
+	if len(input) == 0 {
+		return ""
+	}
+
+	for n := 0; n < len(input); n++ {
+		if n%8 == 0 {
+			output += fmt.Sprint("    ")
+		}
+
+		output += fmt.Sprintf("%02X ", input[n])
+
+		if (n+1)%32 == 0 {
+			output += fmt.Sprint("\n")
+		}
+	}
+	output += fmt.Sprint("\n")
+
+	return output
+}
