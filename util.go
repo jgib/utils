@@ -79,3 +79,14 @@ func IsPipe() (bool, error) {
 	}
 	return fileInfo.Mode()&os.ModeCharDevice == 0, nil
 }
+
+func PP[T any](input T) {
+	switch any(value).(type) {
+	case int:
+		fmt.Println("int")
+	case string:
+		fmt.Println("string")
+	default:
+		fmt.Println("other")
+	}
+}
