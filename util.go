@@ -37,6 +37,8 @@ func Debug(text string, verbose ...bool) {
 }
 
 func GetArgs(n int) ([]string, error) {
+	// n is minimum number of args required, 0 is no minimum
+	// Returns string slice of arguments
 	args := os.Args[1:]
 
 	if n != 0 && len(args) < n {
@@ -67,4 +69,13 @@ func WalkByteSlice(input []byte) string {
 	output += fmt.Sprint("\n")
 
 	return output
+}
+
+func IsPipe() (bool, error) {
+	// Return true if pipe
+	fileInfo, err := os.Stdin.Stat()
+	if err != nil {
+		return false, err
+	}
+	return fileInfo.Mode()&os.ModeCharDevice == 0, nil
 }
