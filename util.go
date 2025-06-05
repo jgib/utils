@@ -80,41 +80,42 @@ func IsPipe() (bool, error) {
 	return fileInfo.Mode()&os.ModeCharDevice == 0, nil
 }
 
-func PP[T any](input *T) string {
+func PP(input *any) string {
 	var output string
-	fmt.Println(input)
 
-	switch any(*input).(type) {
-	case int8:
+	switch fmt.Sprintf("%T") {
+	case "int":
 		fmt.Println("int8")
-	case int16:
-		fmt.Println("int16")
-	case int32:
-		fmt.Println("int32")
-	case int64:
-		fmt.Println("int64")
-	case uint8:
-		fmt.Println("uint8")
-	case uint16:
-		fmt.Println("uint16")
-	case uint32:
-		fmt.Println("uint32")
-	case uint64:
-		fmt.Println("uint64")
-	case uintptr:
-		fmt.Println("uintptr")
-	case float32:
-		fmt.Println("float32")
-	case float64:
-		fmt.Println("float64")
-	case complex64:
-		fmt.Println("complex64")
-	case complex128:
-		fmt.Println("complex128")
-	case bool:
-		fmt.Println("bool")
-	case string:
-		fmt.Println("string")
+		/*
+			case int16:
+				fmt.Println("int16")
+			case int32:
+				fmt.Println("int32")
+			case int64:
+				fmt.Println("int64")
+			case uint8:
+				fmt.Println("uint8")
+			case uint16:
+				fmt.Println("uint16")
+			case uint32:
+				fmt.Println("uint32")
+			case uint64:
+				fmt.Println("uint64")
+			case uintptr:
+				fmt.Println("uintptr")
+			case float32:
+				fmt.Println("float32")
+			case float64:
+				fmt.Println("float64")
+			case complex64:
+				fmt.Println("complex64")
+			case complex128:
+				fmt.Println("complex128")
+			case bool:
+				fmt.Println("bool")
+			case string:
+				fmt.Println("string")
+		*/
 	default:
 		fmt.Println("other")
 	}
