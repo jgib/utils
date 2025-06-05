@@ -85,13 +85,12 @@ func PP[T any](input *T) string {
 	dataType := fmt.Sprintf("%T", *input)
 
 	fmt.Printf("TYPE: %s\n", dataType)
-	//fmt.Printf("LEN: %d, %v\n", len(*input), *input)
 
-	if len(*input) >= 2 && dataType[:2] == "[]" {
+	if len(dataType) >= 2 && dataType[:2] == "[]" {
 		fmt.Println("SLICE")
-	} else if len(*input) >= 3 && dataType[:3] == "map" {
+	} else if len(dataType) >= 3 && dataType[:3] == "map" {
 		fmt.Println("MAP")
-	} else if (len(*input) >= 3 && dataType[:3] == "int") || (len(*input) >= 5 && dataType[1:4] == "uint") || (len(*input) >= 5 && dataType[:5] == "float") || (len(*input) >= 7 && dataType[:7] == "complex") {
+	} else if (len(dataType) >= 3 && dataType[:3] == "int") || (len(dataType) >= 4 && dataType[:4] == "uint") || (len(dataType) >= 5 && dataType[:5] == "float") || (len(dataType) >= 7 && dataType[:7] == "complex") {
 		output = fmt.Sprintf("(%T) %d", *input)
 	} else {
 
