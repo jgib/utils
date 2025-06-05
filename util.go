@@ -89,7 +89,7 @@ func PP[T any](input *T) string {
 	case "*int":
 		fmt.Println("*int")
 	case "int8":
-    	fmt.Println("int8")
+		fmt.Println("int8")
 	case "int16":
 		fmt.Println("int16")
 	case "int32":
@@ -114,11 +114,11 @@ func PP[T any](input *T) string {
 		fmt.Println("complex64")
 	case "complex128":
 		fmt.Println("complex128")
-	case "bool':
+	case "bool":
 		fmt.Println("bool")
 	case "string":
 		fmt.Println("string")
-    default:
+	default:
 		fmt.Println("other")
 	}
 
