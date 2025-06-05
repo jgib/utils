@@ -80,7 +80,7 @@ func IsPipe() (bool, error) {
 	return fileInfo.Mode()&os.ModeCharDevice == 0, nil
 }
 
-func PP[T any](input T) string {
+func PP[T any](input *T) string {
 	var output string
 
 	switch any(input).(type) {
