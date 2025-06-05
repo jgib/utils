@@ -85,7 +85,7 @@ func PP[T any](input *T) string {
 	dataType := fmt.Sprintf("%T", *input)
 
 	fmt.Printf("TYPE: %s\n", dataType)
-	fmt.Printf("LEN: %d, %v\n", len(*input), *input)
+	//fmt.Printf("LEN: %d, %v\n", len(*input), *input)
 
 	if len(*input) >= 2 && dataType[:2] == "[]" {
 		fmt.Println("SLICE")
