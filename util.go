@@ -83,7 +83,7 @@ func IsPipe() (bool, error) {
 func PP[T any](input *T) string {
 	var output string
 
-	switch any(input).(type) {
+	switch any(*input).(type) {
 	case int8:
 		fmt.Println("int8")
 	case int16:
