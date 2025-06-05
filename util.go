@@ -7,6 +7,7 @@ import (
 	"path"
 	"runtime"
 	"time"
+	"unicode/utf8"
 )
 
 func Er(err error) {
@@ -87,7 +88,7 @@ func PP[T any](input *T) string {
 	fmt.Printf("TYPE: %s\n", dataType)
 	fmt.Printf("LEN: %d, %v\n", len(dataType), *input)
 
-	if len(dataType) >= 2 && dataType[:2] == "[]" {
+	if utf8.RuneCountInString(dataType) >= 2 && dataType[:2] == "[]" {
 		fmt.Println("SLICE")
 	} else if len(dataType) >= 3 && dataType[:3] == "map" {
 		fmt.Println("MAP")
