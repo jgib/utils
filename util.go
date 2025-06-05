@@ -80,7 +80,6 @@ func IsPipe() (bool, error) {
 	return fileInfo.Mode()&os.ModeCharDevice == 0, nil
 }
 
-// func PP(input any) string {
 func PP[T any](input *T) string {
 	var output string
 	dataType := fmt.Sprintf("%T", *input)
@@ -91,7 +90,9 @@ func PP[T any](input *T) string {
 		fmt.Println("SLICE")
 	} else if dataType[:3] == "map" {
 		fmt.Println("MAP")
-	} else {
+    } else if dataType[:3] == "int" || dataType[1:4] == "uint" || dataTyep[:5] == "float" || dataType[:7] == "complex" {
+        output = fmt.Sprintf("(%T) %d, *input)
+    } else {
 
 		switch fmt.Sprintf("%T", *input) {
 		case "int8":
