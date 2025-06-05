@@ -84,7 +84,7 @@ func PP(input any) string {
 	var output string
 
 	switch fmt.Sprintf("%T", input) {
-	case "int":
+	case "*int":
 		fmt.Println("int8")
 		/*
 			case int16:
