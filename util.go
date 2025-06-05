@@ -83,8 +83,17 @@ func IsPipe() (bool, error) {
 // func PP(input any) string {
 func PP[T any](input *T) string {
 	var output string
+	dataType := fmt.Sprintf("%T", *input)
 
-	fmt.Printf("TYPE: %T\n", *input)
+	fmt.Printf("TYPE: %s\n", dataType)
+
+	if dataType[:2] == "[]" {
+		fmt.Println("SLICE")
+	}
+	if dataType[:3] == "map" {
+		fmt.Println("MAP")
+	}
+
 	switch fmt.Sprintf("%T", *input) {
 	case "*int":
 		fmt.Println("*int")
