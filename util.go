@@ -92,10 +92,8 @@ func PP[T any](input *T) string {
 		output = fmt.Sprintf("(%T) %v", *input, *input)
 	} else if utf8.RuneCountInString(dataType) >= 3 && dataType[:3] == "map" {
 		output = fmt.Sprintf("(%T) %v", *input, *input)
-	} else if (utf8.RuneCountInString(dataType) >= 3 && dataType[:3] == "int") || (utf8.RuneCountInString(dataType) >= 4 && dataType[:4] == "uint") || (utf8.RuneCountInString(dataType) >= 5 && dataType[:5] == "float") || (utf8.RuneCountInString(dataType) >= 7 && dataType[:7] == "complex") {
-		output = fmt.Sprintf("(%T) %d", *input, *input)
 	} else {
-
+		output = fmt.Sprintf("(%T) %v", *input, *input)
 	}
 
 	return output
