@@ -81,7 +81,7 @@ func IsPipe() (bool, error) {
 }
 
 // func PP(input any) string {
-func PP[T any](input *any) string {
+func PP[T any](input *T) string {
 	var output string
 
 	switch fmt.Sprintf("%T", input) {
