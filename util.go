@@ -89,9 +89,10 @@ func PP[T any](input *T) string {
 
 	if dataType[:2] == "[]" {
 		fmt.Println("SLICE")
-	}
-	if dataType[:3] == "map" {
+	} else if dataType[:3] == "map" {
 		fmt.Println("MAP")
+	} else {
+
 	}
 
 	switch fmt.Sprintf("%T", *input) {
