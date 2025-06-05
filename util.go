@@ -90,7 +90,7 @@ func PP[T any](input *T) string {
 		fmt.Println("SLICE")
 	} else if dataType[:3] == "map" {
 		fmt.Println("MAP")
-	} else if dataType[:3] == "int" || dataType[1:4] == "uint" || dataTyep[:5] == "float" || dataType[:7] == "complex" {
+	} else if dataType[:3] == "int" || dataType[1:4] == "uint" || dataType[:5] == "float" || dataType[:7] == "complex" {
 		output = fmt.Sprintf("(%T) %d", *input)
 	} else {
 
