@@ -120,3 +120,23 @@ func ValidateIP(input string) bool {
 	}
 	return false
 }
+
+func Ip2Uint32(input string) (uint32, error) {
+	if ValidateIP(input) {
+		ip := uint32(0)
+		regex := regexp.MustCompile(`^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$`)
+		matches := regex.FindStringSubmatch(input)
+
+		if len(matches) == 5 {
+			for i := 1; i < 5; i++ {
+				octet, err := strconv.ParseUint(matches[i], 10, 32)
+				Er(err)
+
+				ip <<= 8
+				ip += uint32(octet)
+			}
+			return ip, nil
+		}
+	}
+	return 0, fmt.Errorf("Invalid IP Address.")
+}
