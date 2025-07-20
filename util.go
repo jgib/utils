@@ -5,7 +5,9 @@ import (
 	"log"
 	"os"
 	"path"
+	"regexp"
 	"runtime"
+	"strconv"
 	"time"
 	"unicode/utf8"
 )
@@ -101,4 +103,20 @@ func PP[T any](input *T) string {
 	}
 
 	return output
+}
+
+func ValidateIP(input string) bool {
+	regex := regexp.MustCompile(`^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$`)
+	matches := regex.FindStringSubmatch(input)
+
+	if len(matches) == 4 {
+		for i := 0; i < 4; i++ {
+			octet, err := strconv.Atoi(matches[i])
+			if err != nil || octet < 0 || octet > 255 {
+				return false
+			}
+		}
+		return true
+	}
+	return false
 }
