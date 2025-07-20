@@ -21,7 +21,7 @@ func Er(err error) {
 
 	if err != nil {
 		//log.Fatalf("| %v | %s:%d | Error: %v\n", runtime.FuncForPC(pc).Name(), path.Base(file), line, err)
-		fmt.Fprintf(os.Stderr, fmt.Sprintf("%02d:%02d:%02d.%04d | %v | %s:%d | Error: %v\n", now.Hour(), now.Minute(), now.Second(), now.Nanosecond()/1000000, runtime.FuncForPC(pc).Name(), path.Base(file), line, err))
+		fmt.Fprintf(os.Stderr, fmt.Sprintf("%02d:%02d:%02d.%03d | %v | %s:%d | Error: %v\n", now.Hour(), now.Minute(), now.Second(), now.Nanosecond()/1000000, runtime.FuncForPC(pc).Name(), path.Base(file), line, err))
 	}
 }
 
@@ -36,7 +36,7 @@ func Debug(text string, verbose ...bool) {
 		}
 
 		//fmt.Fprintf(os.Stderr, "%s | %v | %s:%d | Debug: %s\n", currTime.Format("2006/01/02 15:04:05"), runtime.FuncForPC(pc).Name(), path.Base(file), line, text)
-		fmt.Fprintf(os.Stderr, fmt.Sprintf("%02d:%02d:%02d.%04d | %v | %s:%d | Debug: %v\n", now.Hour(), now.Minute(), now.Second(), now.Nanosecond()/1000000, runtime.FuncForPC(pc).Name(), path.Base(file), line, text))
+		fmt.Fprintf(os.Stderr, fmt.Sprintf("%02d:%02d:%02d.%03d | %v | %s:%d | Debug: %v\n", now.Hour(), now.Minute(), now.Second(), now.Nanosecond()/1000000, runtime.FuncForPC(pc).Name(), path.Base(file), line, text))
 	}
 }
 
