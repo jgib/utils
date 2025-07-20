@@ -109,8 +109,8 @@ func ValidateIP(input string) bool {
 	regex := regexp.MustCompile(`^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$`)
 	matches := regex.FindStringSubmatch(input)
 	fmt.Println(matches)
-	if len(matches) == 4 {
-		for i := 0; i < 4; i++ {
+	if len(matches) == 5 {
+		for i := 1; i < 5; i++ {
 			octet, err := strconv.Atoi(matches[i])
 			if err != nil || octet < 0 || octet > 255 {
 				return false
