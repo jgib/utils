@@ -140,3 +140,32 @@ func Ip2Uint32(input string) (uint32, error) {
 	}
 	return 0, fmt.Errorf("Invalid IP Address.")
 }
+
+func ValidatePort(input string) bool {
+	regex := regexp.MustCompile(`^(\d{1,5})$`)
+	matches := regex.FindStringSubmatch(input)
+
+	if len(matches) == 2 {
+		_, err := strconv.ParseUint(input, 10, 16)
+		if err != nil {
+			return false
+		} else {
+			return true
+		}
+	}
+	return false
+}
+
+func Port2Uint16(input string) (uint16, error) {
+	if ValidatePort(input) {
+		regex := regexp.MustCompile(`^(\d{1,5})$`)
+		matches := regex.FindStringSubmatch(input)
+
+		if len(matches) == 2 {
+			port, err := strconv.ParseUint(input, 10, 16)
+			Er(err)
+			return uint16(port), nil
+		}
+	}
+	return 0, fmt.Errorf("Invalid Port.")
+}
