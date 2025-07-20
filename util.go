@@ -22,6 +22,7 @@ func Er(err error) {
 	if err != nil {
 		//log.Fatalf("| %v | %s:%d | Error: %v\n", runtime.FuncForPC(pc).Name(), path.Base(file), line, err)
 		fmt.Fprintf(os.Stderr, fmt.Sprintf("%02d:%02d:%02d.%03d | %v | %s:%d | Error: %v\n", now.Hour(), now.Minute(), now.Second(), now.Nanosecond()/1000000, runtime.FuncForPC(pc).Name(), path.Base(file), line, err))
+		os.Exit(2)
 	}
 }
 
