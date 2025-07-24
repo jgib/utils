@@ -73,7 +73,7 @@ func WalkByteSlice(input []byte) string {
 			output += fmt.Sprint("\n")
 		}
 	}
-	output += fmt.Sprint("\n")
+	//output += fmt.Sprint("\n")
 
 	return output
 }
